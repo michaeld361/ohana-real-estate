@@ -1,4 +1,70 @@
 /* ========================================
+   @font-face Declarations
+   ======================================== */
+@font-face {
+    font-family: 'Lexend';
+    src: url('fonts/Lexend-Regular.woff2') format('woff2'),
+        url('fonts/Lexend-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('fonts/Lexend-Medium.woff2') format('woff2'),
+        url('fonts/Lexend-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('fonts/Lexend-SemiBold.woff2') format('woff2'),
+        url('fonts/Lexend-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('fonts/Lexend-Bold.woff2') format('woff2'),
+        url('fonts/Lexend-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lexend';
+    src: url('fonts/Lexend-Light.woff2') format('woff2'),
+        url('fonts/Lexend-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lucida Calligraphy';
+    src: url('fonts/LucidaUnicodeCalligraphy.woff2') format('woff2'),
+        url('fonts/LucidaUnicodeCalligraphy.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lucida Calligraphy';
+    src: url('fonts/LucidaUnicodeCalligraphy-Bold.woff2') format('woff2'),
+        url('fonts/LucidaUnicodeCalligraphy-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ========================================
    CSS Custom Properties & Design Tokens
    ======================================== */
 :root {
@@ -14,12 +80,12 @@
     --color-white: #FFFFFF;
 
     /* Typography */
-    /* Headers: Serif (Playfair Display) */
-    --font-heading: "Playfair Display", "Times New Roman", serif;
+    /* Main font: Lexend */
+    --font-heading: "Lexend", -apple-system, BlinkMacSystemFont, sans-serif;
     /* Accents: Script (Lucida Calligraphy) */
     --font-accent: "Lucida Calligraphy", "Brush Script MT", cursive;
-    /* Body: Sans (Montserrat) */
-    --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Body: Lexend */
+    --font-body: "Lexend", -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* Spacing */
     --space-md: 1rem;
@@ -148,8 +214,8 @@ a {
    Header & Logo
    ======================================== */
 .header {
-    /* Much more whitespace between logo and headline */
-    margin-bottom: 6rem;
+    /* Whitespace between logo and headline */
+    margin-bottom: 2.8rem;
 }
 
 .logo {
@@ -168,9 +234,9 @@ a {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
-    font-weight: 400;
-    /* Serif usually looks better regular */
+    font-weight: 100;
+    font-size: 2.5em;
+    letter-spacing: -1px;
     line-height: 1.15;
     color: var(--color-text-dark);
     margin-bottom: var(--space-lg);
@@ -233,8 +299,6 @@ a {
     font-weight: 600;
     color: var(--color-text-medium);
     margin-bottom: var(--space-md);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
 }
 
 .contact-details {
@@ -382,8 +446,8 @@ a {
     }
 
     .footer {
-        text-align: left;
-        padding-left: 10%;
+        text-align: center;
+        left: 0;
         bottom: 2rem;
     }
 
