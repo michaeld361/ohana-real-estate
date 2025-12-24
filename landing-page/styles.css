@@ -1,0 +1,395 @@
+/* ========================================
+   CSS Custom Properties & Design Tokens
+   ======================================== */
+:root {
+    /* Colors - Verified from Design */
+    --color-primary: #8F3CCE;
+    /* Vibrant Purple */
+    --color-primary-hover: #7A33AF;
+
+    --color-text-dark: #1A1A1A;
+    /* Almost Black */
+    --color-text-medium: #4A4A4A;
+
+    --color-white: #FFFFFF;
+
+    /* Typography */
+    /* Headers: Serif (Playfair Display) */
+    --font-heading: "Playfair Display", "Times New Roman", serif;
+    /* Accents: Script (Lucida Calligraphy) */
+    --font-accent: "Lucida Calligraphy", "Brush Script MT", cursive;
+    /* Body: Sans (Montserrat) */
+    --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Spacing */
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    /* Forms & Buttons */
+    --radius-btn: 6px;
+    /* Slightly rounded, not pill */
+
+    /* Transitions */
+    --transition-base: 250ms ease;
+}
+
+/* ========================================
+   CSS Reset & Base Styles
+   ======================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    /* Light background fallback */
+    background-color: #F9FAFB;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+}
+
+/* ========================================
+   Background 
+   ======================================== */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('hero-background.png');
+    background-size: cover;
+    background-position: center;
+    /* Subtle zoom effect */
+    animation: slowZoom 40s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient to ensure text readability but keep image visible */
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.85) 40%,
+            rgba(255, 255, 255, 0.60) 100%);
+}
+
+/* ========================================
+   Main Layout
+   ======================================== */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    /* Mobile First: Center everything */
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: var(--space-xl) var(--space-lg);
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* ========================================
+   Header & Logo
+   ======================================== */
+.header {
+    /* Much more whitespace between logo and headline */
+    margin-bottom: 6rem;
+}
+
+.logo {
+    /* Increased logo size */
+    width: 180px;
+}
+
+/* ========================================
+   Hero Typography
+   ======================================== */
+.hero {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: var(--space-2xl);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    font-weight: 400;
+    /* Serif usually looks better regular */
+    line-height: 1.15;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-lg);
+}
+
+/* The "your" accent style */
+.title-accent {
+    font-family: var(--font-accent);
+    color: var(--color-primary);
+    /* Use brand color only for accent? Or keep text black? Design usually has black text. */
+    /* Actually design usually has "Find your place" in black/dark grey, maybe just "Ohana" is purple. 
+       Let's keep accent purple for flair, but maybe subtle. */
+    font-weight: 400;
+    font-style: normal;
+    padding: 0 0.1em;
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    color: var(--color-text-medium);
+    line-height: 1.8;
+    margin-bottom: var(--space-xl);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Center on mobile */
+}
+
+.coming-soon-text {
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    margin-top: var(--space-lg);
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: rgba(143, 60, 206, 0.1);
+    border-radius: 4px;
+}
+
+.divider {
+    display: none;
+    /* Removed for cleaner look matching the modern design */
+}
+
+/* ========================================
+   Buttons & Contact
+   ======================================== */
+.contact {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contact-intro {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-medium);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    /* Mobile center */
+}
+
+/* Base button style - Normal sized CTAs */
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    /* Small, refined buttons */
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    /* Keep text on single line */
+    white-space: nowrap;
+}
+
+/* Primary Button: Solid Purple */
+.contact-link.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 4px 12px rgba(143, 60, 206, 0.25);
+}
+
+.contact-link.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(143, 60, 206, 0.35);
+}
+
+/* Secondary Button: White/Ghost */
+.contact-link.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-link.btn-secondary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.social-links {
+    margin-top: var(--space-xl);
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-link {
+    color: var(--color-text-medium);
+    transition: color 0.2s;
+}
+
+.social-link:hover {
+    color: var(--color-primary);
+    transform: none;
+    /* Simple color shift, no jump */
+}
+
+.footer {
+    position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #9CA3AF;
+}
+
+/* ========================================
+   Desktop Layout (Left Aligned)
+   ======================================== */
+@media (min-width: 992px) {
+    .content {
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 10%;
+        padding-right: 5%;
+        /* Shift content slightly left of center visually */
+        max-width: 1600px;
+    }
+
+    .header {
+        position: absolute;
+        top: 3rem;
+        left: 10%;
+        margin: 0;
+    }
+
+    .logo {
+        /* Larger logo on desktop */
+        width: 220px;
+    }
+
+    /* Left align Text */
+    .hero {
+        margin-left: 0;
+        margin-right: auto;
+        /* Add top padding to separate from absolutely positioned logo */
+        padding-top: 10rem;
+    }
+
+    .hero-subtitle {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .coming-soon-text {
+        margin-top: 0;
+        margin-bottom: var(--space-lg);
+    }
+
+    /* Left align Buttons */
+    .contact {
+        align-items: flex-start;
+    }
+
+    .contact-details {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-link {
+        /* Even smaller on desktop */
+        padding: 0.45rem 0.9rem;
+        font-size: 0.75rem;
+    }
+
+    .social-links {
+        justify-content: flex-start;
+        margin-top: var(--space-xl);
+    }
+
+    .footer {
+        text-align: left;
+        padding-left: 10%;
+        bottom: 2rem;
+    }
+
+    /* Specific background positioning for desktop to not hide behind text */
+    .background-image {
+        /* Maybe shift focus to right side of image? */
+        background-position: 70% center;
+    }
+}
